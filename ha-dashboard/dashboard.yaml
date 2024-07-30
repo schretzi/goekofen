@@ -1,0 +1,106 @@
+square: true
+type: grid
+cards:
+- square: false
+  type: grid
+  columns: 1
+  cards:
+  - type: custom:button-text-card
+    title: Heizkreis 1 (EG)
+    entity: number.hk1_mode_auto
+    subtitle: "[[[\n  if (entity.state == 0) { return \"OFF\"; }\n  else if (entity.state == 1) { return \"AUTO\"; }\n  else if (entity.state == 2) { return \"HEAT\"; }\n  else if (entity.state == 3) { return \"LOWER\"; }\n  else    { return \"ERROR\"; }\n]]] \n"
+  - type: entities
+    entities:
+    - entity: sensor.hk1_roomtemp_act
+      type: custom:multiple-entity-row
+      name: Temp IST
+    - entity: sensor.hk1_flowtemp_act
+      type: custom:multiple-entity-row
+      name: Vorlauf IST
+    - entity: sensor.hk1_roomtemp_set
+      type: custom:multiple-entity-row
+      name: Temp SOLL
+    - entity: text.hk1_statetext
+      type: custom:multiple-entity-row
+  - type: custom:button-text-card
+    title: Heizkreis 2 (Keller)
+    entity: number.hk2_mode_auto
+    subtitle: "[[[\n  if (entity.state == 0) { return \"OFF\"; }\n  else if (entity.state == 1) { return \"AUTO\"; }\n  else if (entity.state == 2) { return \"HEAT\"; }\n  else if (entity.state == 3) { return \"LOWER\"; }\n  else    { return \"ERROR\"; }\n]]] \n"
+  - type: entities
+    entities:
+    - entity: sensor.hk2_roomtemp_act
+      type: custom:multiple-entity-row
+      name: Temp IST
+    - entity: sensor.hk2_flowtemp_act
+      type: custom:multiple-entity-row
+      name: Vorlauf IST
+    - entity: sensor.hk2_roomtemp_set
+      type: custom:multiple-entity-row
+      name: Temp SOLL
+    - entity: text.hk2_statetext
+      type: custom:multiple-entity-row
+  - type: custom:button-text-card
+    title: Warmwasser
+    entity: number.ww1_mode_auto
+    subtitle: "[[[\n  if (entity.state == 0) { return \"OFF\"; }\n  else if (entity.state == 1) { return \"AUTO\"; }\n  else if (entity.state == 2) { return \"HEAT\"; }\n  else if (entity.state == 3) { return \"LOWER\"; }\n  else    { return \"ERROR\"; }\n]]] \n"
+  - type: entities
+    entities:
+    - entity: sensor.ww1_offtemp_act
+      name: Temp IST
+      type: custom:multiple-entity-row
+    - entity: sensor.ww1_temp_max_set
+      type: custom:multiple-entity-row
+      name: Temp Max
+    - entity: sensor.ww1_temp_min_set
+      type: custom:multiple-entity-row
+      name: Temp Min
+    - entity: sensor.ww1_temp_set
+      type: custom:multiple-entity-row
+      name: Temp Soll
+    - entity: text.ww1_statetext
+      type: custom:multiple-entity-row
+- square: false
+  type: grid
+  columns: 1
+  cards:
+  - type: custom:button-text-card
+    title: Pelletsbrenner
+    entity: number.pe1_mode
+    subtitle: "[[[\n  if (entity.state == 0) { return \"OFF\"; }\n  else if (entity.state == 1) { return \"AUTO\"; }\n  else if (entity.state == 2) { return \"HEAT\"; }\n  else if (entity.state == 3) { return \"LOWER\"; }\n  else    { return \"ERROR\"; }\n]]] \n "
+  - type: entities
+    entities:
+    - entity: number.pe1_uw
+      name: UW
+      type: custom:multiple-entity-row
+    - entity: number.pe1_uw_speed
+      type: custom:multiple-entity-row
+      name: UW Speed
+    - entity: sensor.pe1_temp_act
+      type: custom:multiple-entity-row
+      name: Temp IST
+    - entity: sensor.pe1_temp_set
+      type: custom:multiple-entity-row
+      name: Temp SOLL
+    - entity: sensor.pe1_temp_set
+      type: custom:multiple-entity-row
+      name: Temp SOLL
+    - entity: text.pe1_statetext
+      type: custom:multiple-entity-row
+  - type: custom:button-text-card
+    title: Puffer
+    entity: number.pe1_mode
+    subtitle: "[[[\n return \"AUTO\"]]]"
+  - type: entities
+    entities:
+    - entity: number.pu1_pump
+      name: Pumpe
+      type: custom:multiple-entity-row
+    - entity: sensor.pu1_temp_mitte_act
+      type: custom:multiple-entity-row
+      name: Temp Mitte
+    - entity: sensor.pu1_temp_oben_act
+      type: custom:multiple-entity-row
+      name: Temp Oben
+    - entity: text.pu1_statetext
+      type: custom:multiple-entity-row
+columns: 2
